@@ -1,0 +1,23 @@
+<!-- <hello name="{{ name }}"></hello>
+<p>
+  Start editing to see some magic happen :)
+</p>
+
+<button>click me</button>
+<input type="text" (input)="onChangeEvent($event)" placeholder="search"/> -->
+
+<header>
+  <input type="text" (input)="onChangeEvent($event)" placeholder="search"/>
+
+  <button (click)="searchText = ''">Clear</button>
+</header>
+
+
+<div *ngFor="let res of results | async">
+  <div *ngIf="res?.data?.thumbnail !== 'default' && res?.data?.thumbnail !== 'self'">
+    <a [href]="res?.data?.url">
+      <img [src]="res?.data?.thumbnail" alt="">
+    </a>
+  </div>
+
+</div>
